@@ -3,7 +3,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 
 function App() {
-  const ip = "34.132.155.86";
+  const ip = "35.232.114.55";
   const [todos, setTodos] = useState([]);
 
   // Fetch todos on component mount
