@@ -9,7 +9,7 @@ function App() {
 
   // Fetch todos on component mount
   useEffect(() => {
-    fetch(server+':8080/todos')
+    fetch(server+'/todos')
       .then(response => response.json())
       .then(data => setTodos(data))
       .catch(error => console.error(error));
@@ -17,7 +17,7 @@ function App() {
 
   // Function to add a new TODO item
   const addTodo = (description) => {
-    fetch(server+':8080/todos', {
+    fetch(server+'/todos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ description }),
@@ -38,7 +38,7 @@ function App() {
     setTodos(updatedTodos);
 
     // Update completion on the server (assuming an endpoint exists)
-    fetch(server+`:8080/todos/${id}`, {
+    fetch(server+`/todos/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ completed: !todos.find(todo => todo.id === id).completed }),
@@ -48,7 +48,7 @@ function App() {
   const deleteTodo = (id) => {
     const filteredTodos = todos.filter(todo => todo.id !== id);
     setTodos(filteredTodos);
-    fetch(server+`:8080/todos/${id}`, {
+    fetch(server+`/todos/${id}`, {
       method: 'DELETE'
     })
     .catch(error => console.error(error));
