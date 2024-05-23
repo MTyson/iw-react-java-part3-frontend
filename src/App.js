@@ -3,7 +3,8 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 
 function App() {
-  const ip = "35.232.114.55";
+	//  const server = "https://cd76-35-232-114-55.ngrok-free.app" //"https://35.232.114.55:8080";
+  const server = "https://35.232.114.55:8080";
   const [todos, setTodos] = useState([]);
 
   // Fetch todos on component mount
