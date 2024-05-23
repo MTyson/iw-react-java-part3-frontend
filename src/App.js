@@ -9,7 +9,7 @@ function App() {
 
   // Fetch todos on component mount
   useEffect(() => {
-    fetch('http://'+ip+':8080/todos')
+    fetch(server+':8080/todos')
       .then(response => response.json())
       .then(data => setTodos(data))
       .catch(error => console.error(error));
